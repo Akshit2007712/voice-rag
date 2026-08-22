@@ -211,7 +211,9 @@ def _map_failure(request_id: str, category: str, error: BaseException) -> Harnes
         if status_code == 504:
             return HarnessFailure(request_id, "timeout", 504, "RAG_TIMEOUT", "The request could not be completed in time.", True)
         status_code = status_code if status_code in {422, 502, 503} else 502
-        return HarnessFailure(request_id, category, status_code, "STT_UNAVAILABLE", "Voice transcription is currently unavailable.", status_code == 503)
+        err_msg = str(error) if str(error) and not str(error).startswith("<") else "Voice transcription is currently unavailable."
+        return HarnessFailure(request_id, category, status_code, "STT_UNAVAILABLE", err_msg, status_code == 503)
+
     if category in {"qdrant_connection_error", "qdrant_query_error"}:
         return HarnessFailure(request_id, category, 503, "RAG_UNAVAILABLE", "The answer service is temporarily unavailable.", True)
     if category == "internal_error" and isinstance(error, RuntimeError) and "unavailable" in str(error).lower():
