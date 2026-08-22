@@ -30,9 +30,9 @@ def create_verified_bilingual_cloud_store(backend_root: Path) -> tuple[VectorSto
     url = (os.getenv("QDRANT_URL") or "https://695ea6b7-7d73-498c-b604-b99c92ae47ea.eu-central-1-0.aws.cloud.qdrant.io").strip()
     api_key = (os.getenv("QDRANT_API_KEY") or "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6N2ZlY2FmNzQtN2U1YS00ZjE4LThiM2MtMTUzOGQyMDJjYjk4In0.PlnRJMt9CaKHKCZrG3BtYry7ydnrwtE9xntTqMUy-C8").strip()
 
-    # FORCE_LOCAL_QDRANT=true → skip remote cloud and use in-memory store
-    # This eliminates 200-400ms cross-region Qdrant network latency on Render.
-    force_local = os.getenv("FORCE_LOCAL_QDRANT", "false").strip().lower() in ("1", "true", "yes")
+    # FORCE_LOCAL_QDRANT defaults to true to eliminate 200-400ms cross-region Qdrant network latency on Render.
+    # Set FORCE_LOCAL_QDRANT=false to force remote cloud Qdrant.
+    force_local = os.getenv("FORCE_LOCAL_QDRANT", "true").strip().lower() in ("1", "true", "yes")
 
     is_configured_remote = (
         not force_local
