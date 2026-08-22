@@ -1,10 +1,21 @@
 import { ApiError, type QueryLanguage, type QueryResponse } from "./types";
 
-const DEFAULT_BACKEND = "https://voice-rag-backend-pdll.onrender.com";
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL && process.env.NEXT_PUBLIC_API_BASE_URL.startsWith("http")
-    ? process.env.NEXT_PUBLIC_API_BASE_URL.replace(/\/+$/, "")
-    : DEFAULT_BACKEND;
+const DIRECT_RENDER_BACKEND = "https://voice-rag-backend-pdll.onrender.com";
+
+function getApiBase(): string {
+  const envUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
+  if (envUrl && envUrl.startsWith("http")) {
+    // Force HTTPS if not localhost
+    if (envUrl.startsWith("http://") && !envUrl.includes("localhost") && !envUrl.includes("127.0.0.1")) {
+      return envUrl.replace(/^http:\/\//i, "https://").replace(/\/+$/, "");
+    }
+    return envUrl.replace(/\/+$/, "");
+  }
+  // Default to Next.js same-origin rewrite proxy on Vercel, fallback to direct HTTPS
+  return "/api/backend";
+}
+
+const API_BASE = getApiBase();
 
 const VOICE_ENDPOINT = `${API_BASE}/query-voice`;
 const TEXT_ENDPOINT = `${API_BASE}/query-text`;
@@ -21,7 +32,10 @@ export async function ensureBackendAwake(): Promise<boolean> {
     const tid = setTimeout(() => controller.abort(), 10000);
     const res = await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store", signal: controller.signal });
     clearTimeout(tid);
-    return res.ok;
+    if (res.ok) return true;
+    // Fallback direct check
+    const res2 = await fetch(`${DIRECT_RENDER_BACKEND}/health`, { cache: "no-store" });
+    return res2.ok;
   } catch {
     return false;
   }
@@ -218,19 +232,27 @@ function validateQueryResponse(data: unknown, fallbackTranscript?: string): Quer
 }
 
 async function postQuery(
-  url: string,
+  urlPath: string,
   body: BodyInit,
   options?: { signal?: AbortSignal; headers?: HeadersInit },
 ): Promise<unknown> {
   let lastError: unknown;
+  const targetUrls = [
+    urlPath,
+    urlPath.replace("/api/backend", DIRECT_RENDER_BACKEND),
+  ];
+  // Remove duplicates
+  const uniqueUrls = Array.from(new Set(targetUrls));
+
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const targetUrl = uniqueUrls[attempt % uniqueUrls.length]!;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
     const onExternalAbort = () => controller.abort();
     options?.signal?.addEventListener("abort", onExternalAbort);
 
     try {
-      const res = await fetch(url, {
+      const res = await fetch(targetUrl, {
         method: "POST",
         body,
         headers: options?.headers,
