@@ -1,23 +1,21 @@
-# CUDA-enabled PyTorch build used by the persistent E5 embedder.
---extra-index-url https://download.pytorch.org/whl/cu126
+# CPU-only PyTorch — compatible with Render cloud (no CUDA GPU).
+# The E5 embedder automatically selects CPU when cuda is unavailable.
 
 # API and realtime STT transport.
-fastapi==0.141.1
-pydantic==2.13.4
-uvicorn[standard]==0.52.3
-python-dotenv==1.2.2
-python-multipart==0.0.32
-httpx==0.28.1
-websockets==17.0.1
+fastapi==0.111.0
+pydantic==2.7.1
+uvicorn[standard]==0.29.0
+python-dotenv==1.0.1
+python-multipart==0.0.9
+httpx==0.27.0
+websockets==12.0
 
-# Frozen bilingual RAG runtime.
-numpy==2.5.2
-torch==2.13.0+cu126
-sentence-transformers==5.7.0
-transformers==5.15.0
-qdrant-client==1.19.0
+# Frozen bilingual RAG runtime (CPU build).
+numpy==1.26.4
+torch==2.3.0
+sentence-transformers==3.0.0
+transformers==4.41.2
+qdrant-client==1.9.1
 
-# Local Parquet ingestion and the remote hf:// inspection utility.
-pyarrow==25.0.1
-fsspec[http]==2026.6.0
-huggingface-hub==1.27.0
+# Remote hf:// utility (pyarrow only needed for local ingestion).
+huggingface-hub==0.23.2
