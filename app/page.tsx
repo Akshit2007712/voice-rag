@@ -119,6 +119,8 @@ export default function Home() {
     } else {
       setResult(null);
       setErrorMessage(null);
+      processedBlobRef.current = null;
+      recorder.reset();
       void recorder.start();
     }
   };

@@ -49,8 +49,8 @@ def _filename_for_mime_type(mime_type: str) -> str:
 class SarvamSTTService:
     """Sarvam REST speech-to-text adapter for short audio requests."""
 
-    TIMEOUT_SECONDS = 30.0
-    MODEL = "saaras:v3"
+    TIMEOUT_SECONDS = 25.0
+    MODEL = "saarika:v2.5"
     MODE = "transcribe"
 
     async def transcribe(
