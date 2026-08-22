@@ -153,10 +153,13 @@ async def handle_request_validation_error(request: Request, _exc: RequestValidat
     request_id = new_request_id()
     return JSONResponse(
         status_code=422,
-        content=HarnessErrorResponse(
-            error=UserError(code="INVALID_REQUEST", message="The request is invalid."),
-            request_id=request_id,
-        ).model_dump(),
+        content={
+            "error": {
+                "code": "INVALID_REQUEST",
+                "message": "The request is invalid.",
+            },
+            "request_id": request_id,
+        },
     )
 
 
@@ -170,8 +173,11 @@ async def handle_stt_service_error(request: Request, exc: STTServiceError) -> JS
     )
     return JSONResponse(
         status_code=outcome.status_code,
-        content=HarnessErrorResponse(
-            error=UserError(code=outcome.error_code, message=outcome.message),
-            request_id=outcome.request_id,
-        ).model_dump(),
+        content={
+            "error": {
+                "code": outcome.error_code,
+                "message": outcome.message,
+            },
+            "request_id": outcome.request_id,
+        },
     )

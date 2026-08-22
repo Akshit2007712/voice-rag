@@ -158,10 +158,13 @@ def _harness_response(outcome: HarnessSuccess | HarnessFailure, app) -> VoiceRag
         print("=" * 60 + "\n", flush=True)
         return JSONResponse(
             status_code=outcome.status_code,
-            content=HarnessErrorResponse(
-                error=UserError(code=outcome.error_code, message=outcome.message),
-                request_id=outcome.request_id,
-            ).model_dump(),
+            content={
+                "error": {
+                    "code": outcome.error_code,
+                    "message": outcome.message,
+                },
+                "request_id": outcome.request_id,
+            },
         )
     return _one_shot_response(outcome, app)
 
