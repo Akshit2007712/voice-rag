@@ -12,35 +12,17 @@ const REQUEST_TIMEOUT_MS = 90_000;
 const MAX_RETRIES = 4;
 const RETRY_BASE_DELAY_MS = 2000;
 
-// Warm-up state shared across all calls
-let wakePromise: Promise<boolean> | null = null;
-
-/** Ping /health until backend responds (Render cold-start can take ~50s on free tier) */
-export async function ensureBackendAwake(onWaiting?: () => void): Promise<boolean> {
-  if (wakePromise) return wakePromise;
-  wakePromise = (async () => {
-    for (let attempt = 0; attempt < 12; attempt++) {
-      try {
-        const controller = new AbortController();
-        const tid = setTimeout(() => controller.abort(), 8000);
-        const res = await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store", signal: controller.signal });
-        clearTimeout(tid);
-        if (res.ok) return true;
-      } catch {
-        // backend sleeping — keep probing
-      }
-      if (attempt === 0 && onWaiting) onWaiting();
-      await new Promise(r => setTimeout(r, 5000));
-    }
+// Simple background ping to wake up sleeping container on page load
+export async function ensureBackendAwake(): Promise<boolean> {
+  try {
+    const res = await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store" });
+    return res.ok;
+  } catch {
     return false;
-  })();
-  return wakePromise;
+  }
 }
 
-/** Reset so next call re-probes (call after successful query) */
-export function resetWakeState() {
-  wakePromise = null;
-}
+export function resetWakeState() {}
 
 
 

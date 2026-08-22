@@ -9,7 +9,7 @@ import { CitationsPanel } from "@/components/CitationsPanel";
 import { LatencyPanel } from "@/components/LatencyPanel";
 import { ErrorBanner } from "@/components/ErrorBanner";
 import { useAudioRecorder } from "@/hooks/useAudioRecorder";
-import { ensureBackendAwake, resetWakeState, submitTextQuery, submitVoiceQuery } from "@/lib/api";
+import { ensureBackendAwake, submitTextQuery, submitVoiceQuery } from "@/lib/api";
 import { QueryControls } from "@/components/QueryControls";
 import { computeAggregateStats, getLatencyHistory, recordLatencySample } from "@/lib/latencyStats";
 import { ApiError, type AggregateLatencyStats, type PipelineStage, type QueryLanguage, type QueryResponse } from "@/lib/types";
@@ -33,21 +33,15 @@ export default function Home() {
   const [latencyStats, setLatencyStats] = useState<AggregateLatencyStats>(() =>
     computeAggregateStats(getLatencyHistory()),
   );
-  // Backend warm-up tracking for Render free-tier cold starts
-  const [backendStatus, setBackendStatus] = useState<"warming" | "ready" | "offline">("warming");
 
   const abortRef = useRef<AbortController | null>(null);
   const stageTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const processedBlobRef = useRef<Blob | null>(null);
 
-  // Wake up Render backend on page load, show status to user
+  // Proactively ping sleeping Render backend in background on load
   useEffect(() => {
-    setBackendStatus("warming");
-    ensureBackendAwake(() => setBackendStatus("warming"))
-      .then((ok) => setBackendStatus(ok ? "ready" : "offline"))
-      .catch(() => setBackendStatus("offline"));
+    void ensureBackendAwake();
   }, []);
-
 
   const clearStageTimers = () => {
     stageTimersRef.current.forEach(clearTimeout);
@@ -73,9 +67,6 @@ export default function Home() {
     const controller = new AbortController();
     abortRef.current = controller;
 
-    // The backend is a single request/response call, so these staged
-    // labels are optimistic UI progression, not events from the server.
-    // Swap for real SSE/websocket stage events here if the backend adds them.
     clearStageTimers();
     stageTimersRef.current = [
       setTimeout(() => setPhase((p) => (p === "uploading" ? "transcribing" : p)), 250),
@@ -84,19 +75,6 @@ export default function Home() {
     ];
 
     try {
-      // If backend is still warming, wait for it before sending the actual query
-      if (backendStatus !== "ready") {
-        setPhase("transcribing");
-        const ok = await ensureBackendAwake();
-        if (!ok) {
-          clearStageTimers();
-          setPhase("error");
-          setErrorMessage("Backend is offline. Please wait a moment and try again.");
-          return;
-        }
-        setBackendStatus("ready");
-        resetWakeState();
-      }
       const data = await request();
       clearStageTimers();
       setResult(data);
@@ -107,19 +85,12 @@ export default function Home() {
       clearStageTimers();
       setPhase("error");
       if (err instanceof ApiError) {
-        if (err.message.includes("reach the backend") || err.message.includes("timed out")) {
-          setErrorMessage("⏳ Backend is waking up (Render free tier). Please wait 30s and try again.");
-          setBackendStatus("warming");
-          resetWakeState();
-          ensureBackendAwake().then((ok) => setBackendStatus(ok ? "ready" : "offline"));
-        } else {
-          setErrorMessage(err.message);
-        }
+        setErrorMessage(err.message);
       } else {
         setErrorMessage("Something went wrong. Please try again.");
       }
     }
-  }, [backendStatus]);
+  }, []);
 
   const runVoiceQuery = useCallback((blob: Blob) => {
     return runQuery(() => submitVoiceQuery(blob, { signal: abortRef.current?.signal, language }));
@@ -129,101 +100,79 @@ export default function Home() {
     return runQuery(() => submitTextQuery(text, queryLanguage, { signal: abortRef.current?.signal }));
   }, [runQuery]);
 
-  // Fire the pipeline exactly once per freshly recorded blob.
+  // When recording stops and we have audio, process or load it into controls
   useEffect(() => {
-    if (
-      recorder.status === "stopped" &&
-      recorder.audioBlob &&
-      recorder.audioBlob.size > 0 &&
-      recorder.audioBlob !== processedBlobRef.current
-    ) {
-      processedBlobRef.current = recorder.audioBlob;
+    if (recorder.status !== "stopped" || !recorder.audioBlob) return;
+    if (processedBlobRef.current === recorder.audioBlob) return;
+    processedBlobRef.current = recorder.audioBlob;
+
+    if (autoSend) {
       void runVoiceQuery(recorder.audioBlob);
     }
-  }, [recorder.status, recorder.audioBlob, runVoiceQuery]);
+  }, [recorder.status, recorder.audioBlob, autoSend, runVoiceQuery]);
 
-  const handleMicPress = () => {
-    if (phase === "recording") {
-      recorder.stop();
-      return;
+  const handleMicClick = () => {
+    if (recorder.status === "recording") {
+      recorder.stopRecording();
+    } else if (BUSY_PHASES.includes(phase)) {
+      handleCancel();
+    } else {
+      setResult(null);
+      setErrorMessage(null);
+      void recorder.startRecording();
     }
-    if (BUSY_PHASES.includes(phase)) return;
-
-    setErrorMessage(null);
-    recorder.reset();
-    void recorder.start({ autoStopAfterSilenceMs: autoSend ? 2000 : undefined });
   };
 
-  useEffect(() => {
-    const savedLanguage = window.localStorage.getItem("voice-rag:language");
-    if (savedLanguage === "en" || savedLanguage === "hi") setLanguage(savedLanguage);
-  }, []);
-
-  const handleLanguageChange = (value: QueryLanguage) => {
-    setLanguage(value);
-    window.localStorage.setItem("voice-rag:language", value);
-  };
-
-  const busy = BUSY_PHASES.includes(phase);
-
-  const handleTextAsk = useCallback(async () => {
-    const text = query.trim();
-    if (!text || busy) return;
-    setQuery("");
-    await runTextQuery(text, language);
-  }, [busy, language, query, runTextQuery]);
-
-  const handleClear = () => {
+  const handleCancel = () => {
     abortRef.current?.abort();
     clearStageTimers();
-    recorder.reset();
+    setPhase("idle");
+  };
+
+  const handleTextAsk = () => {
+    if (!query.trim()) return;
+    void runTextQuery(query, language);
+  };
+
+  const handleLanguageChange = (nextLang: QueryLanguage) => {
+    setLanguage(nextLang);
+  };
+
+  const handleClear = () => {
     setQuery("");
     setResult(null);
     setErrorMessage(null);
     setPhase("idle");
   };
 
-  const handleCancel = () => {
-    abortRef.current?.abort();
-    clearStageTimers();
-    setPhase("error");
-    setErrorMessage("Cancelled before the answer came back.");
-  };
-
-  const showLoadingSkeletons = busy;
+  const busy = BUSY_PHASES.includes(phase);
+  const showLoadingSkeletons = busy && phase !== "uploading";
 
   return (
-    <div className="flex min-h-dvh flex-col scanlines">
-      <HudBar lastTotalMs={result?.latency.total_ms ?? null} queryCount={queryCount} />
+    <div className="flex min-h-screen flex-col bg-sky-cloud text-ink font-body selection:bg-coin selection:text-ink">
+      <HudBar lastTotalMs={result?.latency?.total_ms ?? null} queryCount={queryCount} />
 
-      <div aria-hidden="true" className="sky-scene">
-        <span className="pixel-cloud cloud-one" />
-        <span className="pixel-cloud cloud-two" />
-        <span className="pixel-cloud cloud-three" />
-        <span className="pixel-bird bird-one" />
-        <span className="pixel-bird bird-two" />
-        <span className="pixel-bird bird-three" />
-        <span className="pixel-flower flower-one" />
-        <span className="pixel-flower flower-two" />
-        <span className="pixel-flower flower-three" />
-        <span className="pixel-flower flower-four" />
-      </div>
-
-      <main className="relative z-10 mx-auto w-full max-w-6xl flex-1 px-4 pb-16 sm:px-6">
-        <section className="flex flex-col items-center gap-4 py-10 sm:py-14">
-          <p className="text-center font-pixel text-[11px] leading-relaxed text-cream drop-shadow-[2px_2px_0_rgba(0,0,0,0.35)] sm:text-sm">
-            PRESS THE BLOCK
-          </p>
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-4 py-6 sm:px-6 sm:py-8">
+        <section className="flex flex-col items-center justify-center pt-2 text-center sm:pt-4">
           <MicOrb
             phase={phase}
-            level={recorder.level}
-            elapsedMs={recorder.elapsedMs}
-            onPress={handleMicPress}
-            disabled={recorder.status === "requesting-permission"}
+            audioLevel={recorder.audioLevel}
+            durationMs={recorder.durationMs}
+            onClick={handleMicClick}
           />
-          {recorder.status === "requesting-permission" && (
-            <p className="font-mono text-xs text-cream/80">
-              Waiting on microphone permission…
+          {phase === "idle" && (
+            <p className="mt-3 font-pixel text-[10px] text-sky-night/70 sm:text-xs">
+              CLICK ORB TO RECORD
+            </p>
+          )}
+          {phase === "recording" && (
+            <p className="mt-3 font-pixel text-[10px] text-alert animate-pulse sm:text-xs">
+              RECORDING... CLICK ORB TO SUBMIT
+            </p>
+          )}
+          {busy && (
+            <p className="mt-3 font-pixel text-[10px] text-coin sm:text-xs">
+              PROCESSING PIPELINE...
             </p>
           )}
           {busy && (
@@ -249,18 +198,6 @@ export default function Home() {
           onClear={handleClear}
         />
 
-        {backendStatus === "warming" && !errorMessage && (
-          <div className="mt-3 flex items-center gap-2 border-2 border-coin bg-coin/10 px-4 py-2 font-mono text-xs text-ink">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-coin" />
-            Backend warming up (Render free tier)... Please wait ~30 seconds before first query.
-          </div>
-        )}
-        {backendStatus === "ready" && !errorMessage && (
-          <div className="mt-3 flex items-center gap-2 border-2 border-pipe bg-pipe/10 px-4 py-2 font-mono text-xs text-ink">
-            <span className="inline-block h-2 w-2 rounded-full bg-pipe" />
-            Backend ready ✓
-          </div>
-        )}
         {errorMessage && (
           <ErrorBanner message={errorMessage} onDismiss={() => setErrorMessage(null)} />
         )}
