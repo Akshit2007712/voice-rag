@@ -30,6 +30,10 @@ class RagLatencyResponse(BaseModel):
     maturity_ms: float = Field(ge=0)
     composer_ms: float = Field(ge=0)
     rag_total_ms: float = Field(ge=0)
+    total_ms: float = Field(default=0.0, ge=0)
+    stt_ms: float | None = Field(default=None, ge=0)
+    total_voice_pipeline_ms: float | None = Field(default=None, ge=0)
+
 
 
 class VoicePipelineLatencyResponse(BaseModel):
