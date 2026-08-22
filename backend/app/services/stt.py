@@ -27,7 +27,22 @@ class STTServiceError(Exception):
         super().__init__(message)
 
 
+def _filename_for_mime_type(mime_type: str) -> str:
+    if "wav" in mime_type:
+        return "audio.wav"
+    if "mp3" in mime_type or "mpeg" in mime_type:
+        return "audio.mp3"
+    if "ogg" in mime_type:
+        return "audio.ogg"
+    if "flac" in mime_type:
+        return "audio.flac"
+    if "m4a" in mime_type or "mp4" in mime_type:
+        return "audio.m4a"
+    return "audio.webm"
+
+
 class SarvamSTTService:
+
     """Sarvam REST speech-to-text adapter for short audio requests."""
 
     TIMEOUT_SECONDS = 15.0
