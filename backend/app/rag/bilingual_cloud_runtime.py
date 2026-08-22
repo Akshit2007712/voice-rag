@@ -27,8 +27,9 @@ def _is_keyword_index(schema: dict[str, object], field: str) -> bool:
 def create_verified_bilingual_cloud_store(backend_root: Path) -> tuple[VectorStore, int]:
     """Open remote Cloud collection if configured (creating/seeding if needed), or seed local store."""
     load_dotenv(backend_root / ".env")
-    url = os.getenv("QDRANT_URL", "").strip()
-    api_key = os.getenv("QDRANT_API_KEY", "").strip()
+    url = (os.getenv("QDRANT_URL") or "https://695ea6b7-7d73-498c-b604-b99c92ae47ea.eu-central-1-0.aws.cloud.qdrant.io").strip()
+    api_key = (os.getenv("QDRANT_API_KEY") or "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6N2ZlY2FmNzQtN2U1YS00ZjE4LThiM2MtMTUzOGQyMDJjYjk4In0.PlnRJMt9CaKHKCZrG3BtYry7ydnrwtE9xntTqMUy-C8").strip()
+
 
     is_configured_remote = url and "your-cluster" not in url and api_key and "replace-with" not in api_key
     if is_configured_remote:

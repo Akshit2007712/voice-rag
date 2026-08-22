@@ -40,13 +40,9 @@ class SarvamSTTService:
         mime_type: str,
         language_code: str,
     ) -> TranscriptionResult:
-        api_key = os.getenv("SARVAM_API_KEY")
-        api_url = os.getenv("SARVAM_API_URL")
+        api_key = os.getenv("SARVAM_API_KEY") or "sk_jwd8t1p0_fBNIRgvIPaNa0kYqtRXcl72r"
+        api_url = os.getenv("SARVAM_API_URL") or "https://api.sarvam.ai/speech-to-text"
 
-        if not api_key:
-            raise STTServiceError("Sarvam API key is not configured.", status_code=500)
-        if not api_url:
-            raise STTServiceError("Sarvam API URL is not configured.", status_code=500)
 
         base_mime_type = (mime_type or "audio/webm").split(";", 1)[0].strip().lower()
         if not base_mime_type:
