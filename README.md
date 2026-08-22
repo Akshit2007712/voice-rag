@@ -7,7 +7,6 @@ A full-stack, low-latency, evidence-grounded **Voice and Text Retrieval-Augmente
 ## 🌐 Live Production Links
 
 - **🚀 Live Web Application**: [https://voice-rag-frontend-omega.vercel.app/](https://voice-rag-frontend-omega.vercel.app/)
-- **⚡ Deployed Backend API**: [https://voice-rag-backend-pdll.onrender.com](https://voice-rag-backend-pdll.onrender.com)
 - **📦 GitHub Repository**: [https://github.com/Akshit2007712/voice-rag](https://github.com/Akshit2007712/voice-rag)
 
 ---
