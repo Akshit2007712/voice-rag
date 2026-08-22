@@ -78,26 +78,8 @@ class SarvamSTTService:
                     "language_code": language_code,
                 }
                 response = await client.post(api_url, headers=headers, data=data, files=files)
-                if response.is_error:
-                    logger.error(
-                        "SARVAM STT ERROR\n"
-                        "endpoint: %s\n"
-                        "status_code: %d\n"
-                        "response_body: %s\n"
-                        "model: %s\n"
-                        "request_config: %s\n"
-                        "filename: %s\n"
-                        "mime_type: %s\n"
-                        "audio_bytes: %d",
-                        api_url,
-                        response.status_code,
-                        _sanitize_response_body(response),
-                        data.get("model", "<not sent>"),
-                        _sanitize_for_log(data),
-                        filename,
-                        mime_type,
-                        len(audio_bytes),
-                    )
+                print(f"[SARVAM DEBUG] Status Code: {response.status_code} | Body: {response.text[:500]}", flush=True)
+
 
         except httpx.TimeoutException as exc:
             logger.error(
@@ -130,14 +112,12 @@ class SarvamSTTService:
             raise STTServiceError("Sarvam returned an invalid transcription response.")
 
         transcript = str(payload.get("transcript") or "").strip()
-        if not transcript:
-            raise STTServiceError("Sarvam returned an empty transcription.")
-
         return TranscriptionResult(
             transcript=transcript,
-            confidence=_confidence_from(payload),
-            duration_ms=_duration_ms_from(payload),
+            confidence=_confidence_from(payload) if transcript else 0.0,
+            duration_ms=_duration_ms_from(payload) if transcript else 0,
         )
+
 
 
 def _filename_for_mime_type(mime_type: str) -> str:

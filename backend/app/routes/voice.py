@@ -90,9 +90,46 @@ async def query_voice(
     transcript = result.transcript.strip()
     print(f">> [SARVAM TRANSCRIPTION]: '{transcript}' (Confidence: {result.confidence:.2f}, Time: {stt_latency_ms:.1f}ms)", flush=True)
     if not transcript:
-        print(">> [EMPTY TRANSCRIPTION]", flush=True)
+        print(">> [NO SPEECH DETECTED IN AUDIO]", flush=True)
         print("=" * 60 + "\n", flush=True)
-        return _harness_response(harness.fail(context, request.app, ValueError("empty transcription")), request.app)
+        fallback_msg = "कोई आवाज़ नहीं मिली। कृपया अपने माइक में स्पष्ट रूप से बोलें।" if language == "hi" else "No speech detected. Please speak clearly into your microphone and try again."
+        return VoiceRagResponse(
+            transcript="(No speech detected)",
+            answer=fallback_msg,
+            no_answer=True,
+            explanation=None,
+            citations=[],
+            latency={
+                "stt_ms": stt_latency_ms,
+                "retrieval_ms": 0.0,
+                "generation_ms": 0.0,
+                "guardrail_ms": 0.0,
+                "guardrails": 0.0,
+                "embedding": 0.0,
+                "embedding_ms": 0.0,
+                "dense": 0.0,
+                "qdrant_ms": 0.0,
+                "bm25": 0.0,
+                "bm25_ms": 0.0,
+                "fusion": 0.0,
+                "rrf_ms": 0.0,
+                "rerank": 0.0,
+                "grounding": 0.0,
+                "maturity_ms": 0.0,
+                "composer_ms": 0.0,
+                "rag_total_ms": 0.0,
+                "total_voice_pipeline_ms": stt_latency_ms,
+                "total_ms": stt_latency_ms,
+            },
+            voice_latency={
+                "stt_ms": stt_latency_ms,
+                "total_voice_pipeline_ms": stt_latency_ms,
+            },
+            guardrail={"triggered": True, "category": "empty_stt", "reason": "No speech detected in audio."},
+            benchmark_latency={"p50_ms": None, "p70_ms": None, "p100_ms": None, "sample_count": None},
+            input_mode="voice",
+        )
+
     return _harness_response(harness.execute(context.with_query(transcript, stt_latency_ms), request.app), request.app)
 
 
