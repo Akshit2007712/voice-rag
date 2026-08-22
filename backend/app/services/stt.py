@@ -46,6 +46,19 @@ def _filename_for_mime_type(mime_type: str) -> str:
     return mapping.get(base, "audio.webm")
 
 
+_STT_CLIENT: httpx.AsyncClient | None = None
+
+
+def _get_stt_client() -> httpx.AsyncClient:
+    global _STT_CLIENT
+    if _STT_CLIENT is None or _STT_CLIENT.is_closed:
+        _STT_CLIENT = httpx.AsyncClient(
+            timeout=httpx.Timeout(25.0, connect=5.0),
+            limits=httpx.Limits(max_keepalive_connections=20, max_connections=50, keepalive_expiry=60.0),
+        )
+    return _STT_CLIENT
+
+
 class SarvamSTTService:
     """Sarvam REST speech-to-text adapter for short audio requests."""
 
@@ -86,18 +99,18 @@ class SarvamSTTService:
         }
 
         try:
-            async with httpx.AsyncClient(timeout=self.TIMEOUT_SECONDS) as client:
-                response = await client.post(
-                    api_url,
-                    headers=headers,
-                    data=data,
-                    files=files,
-                )
-                print(
-                    f"[STT] Sarvam response | status={response.status_code} | "
-                    f"body={response.text[:800]}",
-                    flush=True,
-                )
+            client = _get_stt_client()
+            response = await client.post(
+                api_url,
+                headers=headers,
+                data=data,
+                files=files,
+            )
+            print(
+                f"[STT] Sarvam response | status={response.status_code} | "
+                f"body={response.text[:800]}",
+                flush=True,
+            )
 
         except httpx.TimeoutException as exc:
             logger.error(
