@@ -30,8 +30,15 @@ def create_verified_bilingual_cloud_store(backend_root: Path) -> tuple[VectorSto
     url = (os.getenv("QDRANT_URL") or "https://695ea6b7-7d73-498c-b604-b99c92ae47ea.eu-central-1-0.aws.cloud.qdrant.io").strip()
     api_key = (os.getenv("QDRANT_API_KEY") or "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6N2ZlY2FmNzQtN2U1YS00ZjE4LThiM2MtMTUzOGQyMDJjYjk4In0.PlnRJMt9CaKHKCZrG3BtYry7ydnrwtE9xntTqMUy-C8").strip()
 
+    # FORCE_LOCAL_QDRANT=true → skip remote cloud and use in-memory store
+    # This eliminates 200-400ms cross-region Qdrant network latency on Render.
+    force_local = os.getenv("FORCE_LOCAL_QDRANT", "false").strip().lower() in ("1", "true", "yes")
 
-    is_configured_remote = url and "your-cluster" not in url and api_key and "replace-with" not in api_key
+    is_configured_remote = (
+        not force_local
+        and url and "your-cluster" not in url
+        and api_key and "replace-with" not in api_key
+    )
     if is_configured_remote:
         try:
             store = VectorStore(QdrantSettings(mode="remote", url=url, api_key=api_key, collection_name=BILINGUAL_COLLECTION))
@@ -43,8 +50,9 @@ def create_verified_bilingual_cloud_store(backend_root: Path) -> tuple[VectorSto
         except Exception as err:
             print(f"[Qdrant Cloud notice]: {err}. Initializing local vector store fallback.", flush=True)
 
-
-    # Local high-speed in-memory store
+    # Local high-speed in-memory store (sub-millisecond search)
+    if force_local:
+        print("[Qdrant]: FORCE_LOCAL_QDRANT=true — using in-memory store for low-latency retrieval.", flush=True)
     local_path = backend_root / "data" / "qdrant"
     local_path.mkdir(parents=True, exist_ok=True)
     store = VectorStore(QdrantSettings(mode="local", path=local_path, collection_name=BILINGUAL_COLLECTION))
@@ -54,6 +62,7 @@ def create_verified_bilingual_cloud_store(backend_root: Path) -> tuple[VectorSto
         _seed_sample_passages(store)
 
     return store, store.point_count()
+
 
 
 def _seed_sample_passages(store: VectorStore) -> None:

@@ -26,6 +26,7 @@ class RagLatency:
     maturity_ms: float
     composer_ms: float
     rag_total_ms: float
+    total_ms: float = 0.0  # alias for rag_total_ms; consumed by the frontend LatencyPanel
 
 
 @dataclass(frozen=True)
@@ -70,6 +71,7 @@ def run_text_rag(query_text: str, language: str, input_mode: InputMode, app) -> 
     # Formatting is intentionally local and excluded from the existing composer
     # stage metric; rag_total_ms still measures the complete request lifecycle.
     answer = format_composed_answer(normalized_query, answer, language)
+    rag_total = (time.perf_counter() - started_at) * 1_000
     latency = RagLatency(
         embedding_ms=float(getattr(retrieval, "embedding_latency_ms", 0.0) or 0.0),
         qdrant_ms=float(getattr(retrieval, "qdrant_branch_wall_ms", 0.0) or 0.0),
@@ -79,7 +81,8 @@ def run_text_rag(query_text: str, language: str, input_mode: InputMode, app) -> 
         # One-shot HTTP requests have no partial/final maturity lifecycle.
         maturity_ms=0.0,
         composer_ms=composer_ms,
-        rag_total_ms=(time.perf_counter() - started_at) * 1_000,
+        rag_total_ms=rag_total,
+        total_ms=rag_total,
     )
     return TextRagResult(
         normalized_query,
