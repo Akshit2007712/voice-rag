@@ -28,24 +28,28 @@ class STTServiceError(Exception):
 
 
 def _filename_for_mime_type(mime_type: str) -> str:
-    if "wav" in mime_type:
-        return "audio.wav"
-    if "mp3" in mime_type or "mpeg" in mime_type:
-        return "audio.mp3"
-    if "ogg" in mime_type:
-        return "audio.ogg"
-    if "flac" in mime_type:
-        return "audio.flac"
-    if "m4a" in mime_type or "mp4" in mime_type:
-        return "audio.m4a"
-    return "audio.webm"
+    """Map a MIME type to an appropriate audio filename for the Sarvam multipart upload."""
+    base = (mime_type or "audio/webm").split(";", 1)[0].strip().lower()
+    mapping = {
+        "audio/wav": "audio.wav",
+        "audio/x-wav": "audio.wav",
+        "audio/wave": "audio.wav",
+        "audio/mp3": "audio.mp3",
+        "audio/mpeg": "audio.mp3",
+        "audio/ogg": "audio.ogg",
+        "audio/flac": "audio.flac",
+        "audio/m4a": "audio.m4a",
+        "audio/mp4": "audio.m4a",
+        "audio/webm": "audio.webm",
+        "video/webm": "audio.webm",
+    }
+    return mapping.get(base, "audio.webm")
 
 
 class SarvamSTTService:
-
     """Sarvam REST speech-to-text adapter for short audio requests."""
 
-    TIMEOUT_SECONDS = 15.0
+    TIMEOUT_SECONDS = 30.0
     MODEL = "saaras:v3"
     MODE = "transcribe"
 
@@ -55,78 +59,97 @@ class SarvamSTTService:
         mime_type: str,
         language_code: str,
     ) -> TranscriptionResult:
-        api_key = os.getenv("SARVAM_API_KEY") or "sk_jwd8t1p0_fBNIRgvIPaNa0kYqtRXcl72r"
-        api_url = os.getenv("SARVAM_API_URL") or "https://api.sarvam.ai/speech-to-text"
+        api_key = os.getenv("SARVAM_API_KEY", "").strip()
+        if not api_key:
+            # Fallback key (for testing only — replace in Render env vars!)
+            api_key = "sk_jwd8t1p0_fBNIRgvIPaNa0kYqtRXcl72r"
 
+        api_url = os.getenv("SARVAM_API_URL", "https://api.sarvam.ai/speech-to-text").strip()
 
-        base_mime_type = (mime_type or "audio/webm").split(";", 1)[0].strip().lower()
-        if not base_mime_type:
-            base_mime_type = "audio/webm"
+        base_mime_type = (mime_type or "audio/webm").split(";", 1)[0].strip().lower() or "audio/webm"
         filename = _filename_for_mime_type(base_mime_type)
+
+        print(
+            f"[STT] transcribe called | bytes={len(audio_bytes)} | mime={base_mime_type} | "
+            f"file={filename} | lang={language_code} | api_url={api_url}",
+            flush=True,
+        )
 
         headers = {
             "api-subscription-key": api_key,
-            "Authorization": f"Bearer {api_key}",
         }
         files = {"file": (filename, audio_bytes, base_mime_type)}
+        data = {
+            "model": self.MODEL,
+            "mode": self.MODE,
+            "language_code": language_code,
+        }
 
         try:
             async with httpx.AsyncClient(timeout=self.TIMEOUT_SECONDS) as client:
-                data = {
-                    "model": self.MODEL,
-                    "mode": self.MODE,
-                    "language_code": language_code,
-                }
-                response = await client.post(api_url, headers=headers, data=data, files=files)
-                print(f"[SARVAM DEBUG] Status Code: {response.status_code} | Body: {response.text[:500]}", flush=True)
-
+                response = await client.post(
+                    api_url,
+                    headers=headers,
+                    data=data,
+                    files=files,
+                )
+                print(
+                    f"[STT] Sarvam response | status={response.status_code} | "
+                    f"body={response.text[:800]}",
+                    flush=True,
+                )
 
         except httpx.TimeoutException as exc:
             logger.error(
-                "SARVAM TRANSPORT ERROR\nexception_type: %s\nmessage: %s",
+                "SARVAM TRANSPORT TIMEOUT | %s: %s",
                 type(exc).__name__,
                 _sanitize_text(str(exc)),
             )
-            raise STTServiceError("Sarvam transcription request timed out.", 504) from exc
+            raise STTServiceError("Voice transcription timed out — please try again.", 504) from exc
 
         except httpx.RequestError as exc:
             logger.error(
-                "SARVAM TRANSPORT ERROR\nexception_type: %s\nmessage: %s",
+                "SARVAM REQUEST ERROR | %s: %s",
                 type(exc).__name__,
                 _sanitize_text(str(exc)),
             )
-            raise STTServiceError("Sarvam transcription service is unavailable.", 503) from exc
+            raise STTServiceError(
+                f"Cannot reach transcription service ({type(exc).__name__}). Check network.", 503
+            ) from exc
 
         if response.status_code in {401, 403}:
-            raise STTServiceError("Sarvam API key is invalid or unauthorized.", 401)
+            raise STTServiceError(
+                f"Sarvam API key rejected (HTTP {response.status_code}). Set SARVAM_API_KEY in Render env vars.",
+                401,
+            )
         if response.status_code in {400, 415, 422}:
-            raise STTServiceError("Sarvam does not support this audio file.", 422)
+            body_preview = response.text[:300]
+            raise STTServiceError(
+                f"Sarvam rejected this audio file (HTTP {response.status_code}): {body_preview}",
+                422,
+            )
         if response.is_error:
-            raise STTServiceError("Sarvam transcription service returned an error.")
+            body_preview = response.text[:300]
+            raise STTServiceError(
+                f"Sarvam returned HTTP {response.status_code}: {body_preview}",
+                502,
+            )
 
         try:
             payload: dict[str, Any] = response.json()
         except ValueError as exc:
-            raise STTServiceError("Sarvam returned an invalid transcription response.") from exc
+            raise STTServiceError("Sarvam returned an invalid (non-JSON) transcription response.") from exc
+
         if not isinstance(payload, dict):
-            raise STTServiceError("Sarvam returned an invalid transcription response.")
+            raise STTServiceError("Sarvam returned an unexpected transcription response format.")
 
         transcript = str(payload.get("transcript") or "").strip()
+        print(f"[STT] Transcript extracted | len={len(transcript)} | preview={transcript[:100]!r}", flush=True)
         return TranscriptionResult(
             transcript=transcript,
             confidence=_confidence_from(payload) if transcript else 0.0,
             duration_ms=_duration_ms_from(payload) if transcript else 0,
         )
-
-
-
-def _filename_for_mime_type(mime_type: str) -> str:
-    base_mime_type = mime_type.split(";", 1)[0].strip().lower()
-    extensions = {
-        "audio/webm": ".webm",
-        "video/webm": ".webm",
-    }
-    return f"audio{extensions.get(base_mime_type, '.webm')}"
 
 
 def _confidence_from(payload: dict[str, Any]) -> float:
@@ -168,7 +191,9 @@ def _sanitize_for_log(value: Any) -> Any:
     """Recursively redact keys that could contain credentials before development logging."""
     if isinstance(value, dict):
         return {
-            key: "[REDACTED]" if any(secret in key.lower() for secret in ("api_key", "authorization", "token", "secret"))
+            key: "[REDACTED]" if any(
+                secret in key.lower() for secret in ("api_key", "authorization", "token", "secret")
+            )
             else _sanitize_for_log(item)
             for key, item in value.items()
         }

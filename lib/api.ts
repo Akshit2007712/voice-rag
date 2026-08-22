@@ -8,23 +8,40 @@ const TEXT_ENDPOINT = `${API_BASE}/query-text`;
 const HEALTH_ENDPOINT = `${API_BASE}/health`;
 const READY_ENDPOINT = `${API_BASE}/ready`;
 
-const REQUEST_TIMEOUT_MS = 75_000;
-const MAX_RETRIES = 3;
-const RETRY_BASE_DELAY_MS = 1000;
+const REQUEST_TIMEOUT_MS = 90_000;
+const MAX_RETRIES = 4;
+const RETRY_BASE_DELAY_MS = 2000;
 
-let wakePromise: Promise<void> | null = null;
-export async function ensureBackendAwake(): Promise<void> {
-  if (!wakePromise) {
-    wakePromise = (async () => {
+// Warm-up state shared across all calls
+let wakePromise: Promise<boolean> | null = null;
+
+/** Ping /health until backend responds (Render cold-start can take ~50s on free tier) */
+export async function ensureBackendAwake(onWaiting?: () => void): Promise<boolean> {
+  if (wakePromise) return wakePromise;
+  wakePromise = (async () => {
+    for (let attempt = 0; attempt < 12; attempt++) {
       try {
-        await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store" });
+        const controller = new AbortController();
+        const tid = setTimeout(() => controller.abort(), 8000);
+        const res = await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store", signal: controller.signal });
+        clearTimeout(tid);
+        if (res.ok) return true;
       } catch {
-        // Soft probe to wake up Render free tier container
+        // backend sleeping — keep probing
       }
-    })();
-  }
+      if (attempt === 0 && onWaiting) onWaiting();
+      await new Promise(r => setTimeout(r, 5000));
+    }
+    return false;
+  })();
   return wakePromise;
 }
+
+/** Reset so next call re-probes (call after successful query) */
+export function resetWakeState() {
+  wakePromise = null;
+}
+
 
 
 function sleep(ms: number) {

@@ -9,7 +9,7 @@ import { CitationsPanel } from "@/components/CitationsPanel";
 import { LatencyPanel } from "@/components/LatencyPanel";
 import { ErrorBanner } from "@/components/ErrorBanner";
 import { useAudioRecorder } from "@/hooks/useAudioRecorder";
-import { ensureBackendAwake, submitTextQuery, submitVoiceQuery } from "@/lib/api";
+import { ensureBackendAwake, resetWakeState, submitTextQuery, submitVoiceQuery } from "@/lib/api";
 import { QueryControls } from "@/components/QueryControls";
 import { computeAggregateStats, getLatencyHistory, recordLatencySample } from "@/lib/latencyStats";
 import { ApiError, type AggregateLatencyStats, type PipelineStage, type QueryLanguage, type QueryResponse } from "@/lib/types";
@@ -33,14 +33,19 @@ export default function Home() {
   const [latencyStats, setLatencyStats] = useState<AggregateLatencyStats>(() =>
     computeAggregateStats(getLatencyHistory()),
   );
+  // Backend warm-up tracking for Render free-tier cold starts
+  const [backendStatus, setBackendStatus] = useState<"warming" | "ready" | "offline">("warming");
 
   const abortRef = useRef<AbortController | null>(null);
   const stageTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const processedBlobRef = useRef<Blob | null>(null);
 
-  // Proactively wake up sleeping Render backend container on page load
+  // Wake up Render backend on page load, show status to user
   useEffect(() => {
-    ensureBackendAwake();
+    setBackendStatus("warming");
+    ensureBackendAwake(() => setBackendStatus("warming"))
+      .then((ok) => setBackendStatus(ok ? "ready" : "offline"))
+      .catch(() => setBackendStatus("offline"));
   }, []);
 
 
@@ -79,6 +84,19 @@ export default function Home() {
     ];
 
     try {
+      // If backend is still warming, wait for it before sending the actual query
+      if (backendStatus !== "ready") {
+        setPhase("transcribing");
+        const ok = await ensureBackendAwake();
+        if (!ok) {
+          clearStageTimers();
+          setPhase("error");
+          setErrorMessage("Backend is offline. Please wait a moment and try again.");
+          return;
+        }
+        setBackendStatus("ready");
+        resetWakeState();
+      }
       const data = await request();
       clearStageTimers();
       setResult(data);
@@ -88,11 +106,20 @@ export default function Home() {
     } catch (err) {
       clearStageTimers();
       setPhase("error");
-      setErrorMessage(
-        err instanceof ApiError ? err.message : "Something went wrong processing your question.",
-      );
+      if (err instanceof ApiError) {
+        if (err.message.includes("reach the backend") || err.message.includes("timed out")) {
+          setErrorMessage("⏳ Backend is waking up (Render free tier). Please wait 30s and try again.");
+          setBackendStatus("warming");
+          resetWakeState();
+          ensureBackendAwake().then((ok) => setBackendStatus(ok ? "ready" : "offline"));
+        } else {
+          setErrorMessage(err.message);
+        }
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
     }
-  }, []);
+  }, [backendStatus]);
 
   const runVoiceQuery = useCallback((blob: Blob) => {
     return runQuery(() => submitVoiceQuery(blob, { signal: abortRef.current?.signal, language }));
@@ -222,6 +249,18 @@ export default function Home() {
           onClear={handleClear}
         />
 
+        {backendStatus === "warming" && !errorMessage && (
+          <div className="mt-3 flex items-center gap-2 border-2 border-coin bg-coin/10 px-4 py-2 font-mono text-xs text-ink">
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-coin" />
+            Backend warming up (Render free tier)... Please wait ~30 seconds before first query.
+          </div>
+        )}
+        {backendStatus === "ready" && !errorMessage && (
+          <div className="mt-3 flex items-center gap-2 border-2 border-pipe bg-pipe/10 px-4 py-2 font-mono text-xs text-ink">
+            <span className="inline-block h-2 w-2 rounded-full bg-pipe" />
+            Backend ready ✓
+          </div>
+        )}
         {errorMessage && (
           <ErrorBanner message={errorMessage} onDismiss={() => setErrorMessage(null)} />
         )}
