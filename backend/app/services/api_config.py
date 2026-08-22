@@ -10,6 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 LOCAL_DEVELOPMENT_ORIGINS = (
+    "https://voice-rag-frontend-omega.vercel.app",
+    "https://voice-rag-frontend.vercel.app",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:3005",
@@ -17,6 +19,7 @@ LOCAL_DEVELOPMENT_ORIGINS = (
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 )
+
 
 
 @dataclass(frozen=True)
@@ -53,7 +56,6 @@ def configure_cors(app, settings: CorsSettings) -> None:
         allow_origins=list(settings.origins),
         allow_credentials=False,
         allow_methods=["GET", "POST", "OPTIONS"],
-        # Diagnostics remains operator-only; its credential is intentionally not
-        # exposed as a browser CORS request header.
-        allow_headers=["Content-Type"],
+        allow_headers=["*"],
     )
+

@@ -1,7 +1,8 @@
 import { ApiError, type QueryLanguage, type QueryResponse } from "./types";
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/+$/, "") || "http://localhost:8000";
+  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/+$/, "") || "https://voice-rag-backend-pdll.onrender.com";
+
 const VOICE_ENDPOINT = `${API_BASE}/query-voice`;
 const TEXT_ENDPOINT = `${API_BASE}/query-text`;
 const HEALTH_ENDPOINT = `${API_BASE}/health`;
