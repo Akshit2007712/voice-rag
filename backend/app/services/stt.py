@@ -96,6 +96,8 @@ class SarvamSTTService:
             "model": self.MODEL,
             "mode": self.MODE,
             "language_code": language_code,
+            "with_timestamps": "false",
+            "with_diarization": "false",
         }
 
         try:
