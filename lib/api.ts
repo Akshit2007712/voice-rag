@@ -8,9 +8,24 @@ const TEXT_ENDPOINT = `${API_BASE}/query-text`;
 const HEALTH_ENDPOINT = `${API_BASE}/health`;
 const READY_ENDPOINT = `${API_BASE}/ready`;
 
-const REQUEST_TIMEOUT_MS = 30_000;
-const MAX_RETRIES = 2;
-const RETRY_BASE_DELAY_MS = 400;
+const REQUEST_TIMEOUT_MS = 75_000;
+const MAX_RETRIES = 3;
+const RETRY_BASE_DELAY_MS = 1000;
+
+let wakePromise: Promise<void> | null = null;
+export async function ensureBackendAwake(): Promise<void> {
+  if (!wakePromise) {
+    wakePromise = (async () => {
+      try {
+        await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store" });
+      } catch {
+        // Soft probe to wake up Render free tier container
+      }
+    })();
+  }
+  return wakePromise;
+}
+
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

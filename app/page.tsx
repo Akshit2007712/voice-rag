@@ -9,7 +9,7 @@ import { CitationsPanel } from "@/components/CitationsPanel";
 import { LatencyPanel } from "@/components/LatencyPanel";
 import { ErrorBanner } from "@/components/ErrorBanner";
 import { useAudioRecorder } from "@/hooks/useAudioRecorder";
-import { submitTextQuery, submitVoiceQuery } from "@/lib/api";
+import { ensureBackendAwake, submitTextQuery, submitVoiceQuery } from "@/lib/api";
 import { QueryControls } from "@/components/QueryControls";
 import { computeAggregateStats, getLatencyHistory, recordLatencySample } from "@/lib/latencyStats";
 import { ApiError, type AggregateLatencyStats, type PipelineStage, type QueryLanguage, type QueryResponse } from "@/lib/types";
@@ -37,6 +37,12 @@ export default function Home() {
   const abortRef = useRef<AbortController | null>(null);
   const stageTimersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const processedBlobRef = useRef<Blob | null>(null);
+
+  // Proactively wake up sleeping Render backend container on page load
+  useEffect(() => {
+    ensureBackendAwake();
+  }, []);
+
 
   const clearStageTimers = () => {
     stageTimersRef.current.forEach(clearTimeout);
