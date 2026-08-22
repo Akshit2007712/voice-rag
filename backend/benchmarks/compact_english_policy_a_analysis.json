@@ -1,0 +1,21 @@
+{
+  "language": "en",
+  "source": "MSMARCO-XI original English fields in validation/hinval.parquet",
+  "policy": "POLICY_A_SELECTED_ONLY",
+  "max_tokens": 256,
+  "english_dataset_statistics": {
+    "rows": 97941,
+    "passages": 977545,
+    "non_empty_passages": 977545,
+    "selected_passages": 57463,
+    "zero_selected_rows": 44046,
+    "compact_chunks": 57482
+  },
+  "frozen_hindi_compact_chunks": 58427,
+  "estimated_final_bilingual_points": 115909,
+  "conservative_estimated_bilingual_qdrant_gib": 1.7686309814453125,
+  "qdrant_target_gib": 4.0,
+  "estimated_final_collection_safe": true,
+  "document_embeddings_created": 0,
+  "qdrant_writes": 0
+}

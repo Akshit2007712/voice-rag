@@ -1,0 +1,25 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyc
+.pytest_cache/
+
+# Local-only vector stores and ingestion data.
+data/qdrant/
+data/qdrant_policy_benchmarks/
+data/raw/.cache/
+data/raw/validation/*.parquet
+
+# Generated verification and migration state.
+tmp/*.sqlite
+tmp/*.sqlite-shm
+tmp/*.sqlite-wal
+tmp/*.json
+
+# Local operational output.
+logs/
+*.log
+backend_tree.txt
+desktop.ini

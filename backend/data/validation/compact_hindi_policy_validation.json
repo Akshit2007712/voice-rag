@@ -1,0 +1,2548 @@
+{
+  "POLICY_A_SELECTED_ONLY": [
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1002220",
+      "query": "जब पहली बार हेडलाइट का इस्तेमाल किया गया था",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1009639",
+      "query": "जिस मछली में सबसे अधिक पारा रहता है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1019056",
+      "query": "अंडों को उनके निकलने के दौरान किस तापमान पर उबालना है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1019058",
+      "query": "ज़ुकीनी को किस तापमान पर पकाना है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1020610",
+      "query": "द्विनेत्रीय ताल को परिभाषित करें",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1020939",
+      "query": "नियोक्ताओं से कर्मचारियों को क्या उम्मीद करनी चाहिए",
+      "expected_selected_passage_indexes": [
+        1,
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1022852",
+      "query": "एक विकलांग दिग्गज को मछली पकड़ने का लाइसेंस कितने प्रतिशत मिल सकता है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "102788",
+      "query": "बिस्मथ प्रति पाउंड की लागत",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1028676",
+      "query": "विंडोज के लिए कौन सा एंटीवायरस सॉफ़्टवेयर अच्छा है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1030475",
+      "query": "कौन बेन रोएथलिसबर्गर की पत्नी है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1034124",
+      "query": "जेसन कौन है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1038097",
+      "query": "कौन सैमुअल मलाओ है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1040085",
+      "query": "स्थानीय रूप से उगाए गए खाद्य पदार्थों का क्या प्रभाव होता है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1040768",
+      "query": "पारंपरिक सत्य और परम सत्य के बीच क्या अंतर है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1042770",
+      "query": "शनि का रंग क्या है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1050792",
+      "query": "कौन गाता है क्योंकि मैं प्यार में पड़ना चाहता हूँ।",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1051330",
+      "query": "क्या आपस में चिकित्सकीय साझेदारी है?",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1051603",
+      "query": "मम्मा क्या है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1054101",
+      "query": "हिबाह क्या है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1055357",
+      "query": "जो कि रिचर्ड द लायनहार्ट था",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1058822",
+      "query": "निनजागो किताब किसने लिखी थी",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1059039",
+      "query": "कैंप लेज्यून ज़िप कोड क्या है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1080502",
+      "query": "मैं स्व-नियोजित हूँ या नहीं, यह देखने के लिए मुझे किस फॉर्म में भरना चाहिए।",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1082543",
+      "query": "विस्फोट शब्द का क्या अर्थ है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1083247",
+      "query": "फोटोमोज़ेक का क्या अर्थ है?",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1084722",
+      "query": "मात्रात्मक जोखिम विश्लेषक क्या करते हैं",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1086675",
+      "query": "थॉमस जेफरसन के बच्चों का नाम क्या है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1087792",
+      "query": "कौन से खाते प्राप्य हैं",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1087902",
+      "query": "आर्बी के पास काम करने के लिए आपकी उम्र क्या होनी चाहिए?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1088647",
+      "query": "कैलिफोर्निया में फरवरी का मौसम",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1089836",
+      "query": "तर्कसंगतता का पहला उदाहरण",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1090261",
+      "query": "भूविज्ञान में परिभाषित बोदिनाज",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1091481",
+      "query": "गॉडफ्रे इल की आबादी",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1093726",
+      "query": "स्थानीय पुलिस का अधिकार क्षेत्र",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1094374",
+      "query": "एकीकृत बार परिभाषा",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1096802",
+      "query": "सड़क पर गुस्से में कितने लोग मारे गए?",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1097152",
+      "query": "एक एकड़ के बराबर होते हैं",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1097233",
+      "query": "टाइटैनिक विकी से कितने मरे",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1097287",
+      "query": "मैं सेब की खरीद कितने दिनों तक वापस कर सकता हूँ।",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1097999",
+      "query": "चीनी वीजा कितने समय के लिए मान्य है",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1098315",
+      "query": "गहरे घावों को ठीक होने में कितना समय लगता है",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1098318",
+      "query": "ताड़ के पेड़ों की कटाई में कितना समय लगता है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1098740",
+      "query": "अटैक्सिया टेलेंजिएक्टेसिया की परिभाषा",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1099529",
+      "query": "उपनिवेशवादियों ने मुहरबंदी अधिनियम पर कैसी प्रतिक्रिया व्यक्त की",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1099897",
+      "query": "कूल्हे के प्रिंट तापमान",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1100646",
+      "query": "प्रसिद्ध फ्रांसिस्कन फ्रायर",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1102152",
+      "query": "एडिसन की बीमारी क्यों गंभीर है",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1102400",
+      "query": "भालू क्यों सीतनींद्रा में जाते हैं",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "128747",
+      "query": "मूत्रीय विषाक्तता को परिभाषित करें",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "1579",
+      "query": "613 585 क्षेत्र कोड",
+      "expected_selected_passage_indexes": [
+        3,
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "192695",
+      "query": "डेटा विश्लेषक के कार्य",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "192794",
+      "query": "मूलभूत सिल्वरचेयर सीखना",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "198337",
+      "query": "विकलांगता वाली कारें",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "233864",
+      "query": "परिभ्रमण पोत कितनी तेजी से चलता है?",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "239063",
+      "query": "परीक्षण के लिए इम्प्लांटेशन में रक्तस्राव होने के कितने समय बाद",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "24594",
+      "query": "वेली नाम के रबड़ के जूते जो बारिश में टिके रहते हैं।",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "24674",
+      "query": "क्या मधुमेह के कारण होने वाले अंतर्वाहिका शिरा अवरोध हैं?",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "32955",
+      "query": "पूरे जीवन बीमा योजना की औसत लागत",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "355059",
+      "query": "अपने मोलिना प्रदाता आई.डी. नंबर को कैसे निर्धारित करें",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "363564",
+      "query": "चारकोल ग्रिल पर स्टीक को कैसे पकाया जाए",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "377947",
+      "query": "लेनोवो एस898टी+ की जड़ें कैसे निकालें",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "392517",
+      "query": "इलासिक की लागत",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "413056",
+      "query": "क्या आप डिकैफ की कॉफी ले कर आ रहे हैं?",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "42568",
+      "query": "सार्वजनिक संबंध प्रबंधक का औसत वेतन",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "488345",
+      "query": "संसाधन बैंक मार्गनिर्देशन संख्या",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "490941",
+      "query": "सी.पी. डिफिनिशन इन्वेस्टोपीडिया",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "498011",
+      "query": "लाइम्स के संकेत और लक्षण",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "503674",
+      "query": "स्टीरियोग्नोसिस परिभाषा",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "515178",
+      "query": "कॉपीराइट की परिभाषा",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "559013",
+      "query": "होंठों पर चिंगटी के निशान क्या होते हैं",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "576963",
+      "query": "मौसम की स्थिति क्या है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "612197",
+      "query": "कौन सी काउंटी में रश है, न्यूयॉर्क?",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "622317",
+      "query": "जाड़ू के हैंडल व्यायाम क्या करते हैं",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "633399",
+      "query": "जेल से जुड़ा बांड का क्या अर्थ है?",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "648723",
+      "query": "उपसंचारण से क्या उत्पादन होता है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "68731",
+      "query": "क्या मैं किसी ग्राहक को चुनने के लिए मीलेज काट सकता हूँ?",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "725126",
+      "query": "बॉयलर फीडवाटर क्या है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "734198",
+      "query": "जिसे पृथ्वी पर जीवन के लिए ऊर्जा का स्रोत माना जाता है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "739109",
+      "query": "क्या आहे धम्",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "775975",
+      "query": "क्या है निराकरण",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "783509",
+      "query": "फॉस-नाक का उपयोग किस लिए किया जाता है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "795540",
+      "query": "क्या है शाफ्ट",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "808415",
+      "query": "सबसे अच्छा पोषण संबंधी शेक क्या है",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "824710",
+      "query": "एस. पी. 500 के लिए अब तक का सबसे अधिक करीबी अंक क्या है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "832150",
+      "query": "औसत क्या है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "849873",
+      "query": "पट्टाधारित सुधार का कर जीवन क्या है",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "856315",
+      "query": "क्या टी.एम.एल.एस. है?",
+      "expected_selected_passage_indexes": [
+        1,
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "89189",
+      "query": "यीस्ट संक्रमण के कारण",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "89197",
+      "query": "कॉस्टिक इंजेक्शन प्रणाली",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "902764",
+      "query": "डेल्टा एयरलाइंस आराम से स्थित कौन सा टर्मिनल है?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "92357",
+      "query": "क्या है चुर्रास्कारिया",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "948351",
+      "query": "एन.सी.ए.ए. के लिए कार्यक्रम कब आता है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "978022",
+      "query": "बर्कले कहाँ है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "988969",
+      "query": "ओक्लाहोमा में नेचुरल फॉल्स स्टेट पार्क कहाँ है",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "991723",
+      "query": "किसने सैफाविद साम्राज्य की स्थापना की?",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "995171",
+      "query": "कौन सी काउंटी में होलाडे है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "996805",
+      "query": "वाइल्ड क्रीक जलाशय कहाँ है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "998223",
+      "query": "मुँह में यूवुला कहाँ स्थित होता है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "999789",
+      "query": "वैलेरियन जड़ें कहाँ से आती हैं",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_A_SELECTED_ONLY",
+      "query_id": "999791",
+      "query": "अब तुलिप कहाँ उगती है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    }
+  ],
+  "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE": [
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1006739",
+      "query": "जो चक्रक उपांग से जुड़ा हुआ है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1008400",
+      "query": "शिकागो ओहायो में मौसम कैसा है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1010023",
+      "query": "मुझे तो समझ नहीं आ रहा कि मेरे पास आखिरी बार कौन सी आकाशगंगा टैबलेट है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1011121",
+      "query": "कारमाइन टैंगो जैसे शब्द कौन से फ़ॉन्ट हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1012098",
+      "query": "एंड्रयू जैक्सन डेमोक्रेसी का नाम क्या था",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1018981",
+      "query": "आपके गलग्रंथि का परीक्षण करने के लिए किस परीक्षण की आवश्यकता होती है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1021679",
+      "query": "किस प्रकार की रक्त वाहिका हृदय से रक्त को दूर ले जाती है?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1026404",
+      "query": "किस तरह का पत्थर सोना पाया जाता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1029559",
+      "query": "मार्टिन से टॉमी का असली नाम क्या है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1029694",
+      "query": "कौन सी कंपनी है?",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1030446",
+      "query": "बेला हदीद कौन है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1032380",
+      "query": "कौन है, डॉ. कौन की पत्नी",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "103799",
+      "query": "न्यू ज़ीलैंड में शिक्षा की लागत",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1039389",
+      "query": "जो उद्धरण के लेखक हैं आगे बढ़कर सीखने के लिए सेवा करने के लिए जा रहे हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1045182",
+      "query": "सेंटुरा स्वास्थ्य का स्वामित्व कौन है?",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1051616",
+      "query": "क्या है मैग्नीशियम,",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "105502",
+      "query": "हर्ज़िंग विश्वविद्यालय में चिकित्सा सहायक डिप्लोमा की लागत",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1056866",
+      "query": "जिसे तांग की खोज की गई थी",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1058284",
+      "query": "किसने अच्छी इच्छा लिखी है शिकार",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1078662",
+      "query": "बुद्धि दंत निष्कासन शुष्क संकेतों के लक्षण",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1083232",
+      "query": "बैंकिंग में पॉड का क्या अर्थ है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1083571",
+      "query": "इसका क्या अर्थ है जब एक घर अनुबंध के तहत होता है?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1085022",
+      "query": "एटना प्रदाता सेवा संपर्क नंबर",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1087426",
+      "query": "मानसिक स्वास्थ्य के कारण होने वाली शारीरिक समस्याएं क्या हैं",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1088986",
+      "query": "वी.जी. हाइड्रोलिक ऑयल",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1089040",
+      "query": "एजेंट नारंगी से जुड़े संवहनी मनोभ्रंश के लक्षण",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1090921",
+      "query": "अलबामा में चिकित्सा संहिता लेखकों के लिए वेतन",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1093975",
+      "query": "केले की कैलोरी फाइबर",
+      "expected_selected_passage_indexes": [
+        5,
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1094619",
+      "query": "शिष्टाचार की ईमानदार हास्य होने का महत्व",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1094673",
+      "query": "स्पार्टा एन.सी. में औसत मौसम",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1094829",
+      "query": "नई कार के लिए औसत वाहन पंजीकरण शुल्क",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1095024",
+      "query": "लिंकन में डैनियल डे लुईस कितना लंबा है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1098074",
+      "query": "ट्रोपिकामाइड कितने समय तक चलता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1098721",
+      "query": "हमें टैक्स रिकॉर्ड कैसे बचाने की ज़रूरत है?",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1101352",
+      "query": "छूट बिंदुओं की परिभाषा",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1101358",
+      "query": "शिक्षा पर सोशल मीडिया के नुकसान",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "1101855",
+      "query": "वायरिंग आरेख आमतौर पर कहाँ पाए जाते हैं?",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "115921",
+      "query": "डी.सी.आई. स्टॉक मूल्य",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "12903",
+      "query": "कार्यस्थल पर मामलों में आयु भेदभाव",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "13190",
+      "query": "डी.सी.ए. के लिए आयु सीमा",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "139643",
+      "query": "परिभाषा प्लेक्सस",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "166637",
+      "query": "क्या जी.सी. शपथ पत्र को प्रमाणित करने की आवश्यकता है?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "178383",
+      "query": "प्रभाव संबंधी संज्ञा।",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "185592",
+      "query": "सुनहरी आत्माएँ अर्जित करने का सबसे तेज़ तरीका?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "193448",
+      "query": "गैस की कीमतों में वृद्धि",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "196229",
+      "query": "सरकारी निर्देश परिभाषा",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "204788",
+      "query": "घर का बना कहलुआ",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "219145",
+      "query": "मैं सुरक्षित रूप से विज्ञान संकाय की प्रबंधक कैसे कर सकता हूँ?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "220663",
+      "query": "एक्स.एम.सी. पर तुम्हें रेडियो मरीन कैसे सक्रिय होता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "229182",
+      "query": "ब्रॉडबैंड को डिस्कनेक्ट करना कितना आसान है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "252655",
+      "query": "विकलांगता के कारण किसी मामले की समीक्षा करने और सुनवाई की तारीख तय करने में कितना समय लगता है।",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "259331",
+      "query": "कितने समय तक प्रोजेसेन्स प्लस एलिवेट प्रोजेस्टेरोन",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "282167",
+      "query": "प्रति एक्सीड परिवार में कितने उपकरण हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "289303",
+      "query": "रक्त की एक बोतल में कितने मिलीलीटर होते हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "31934",
+      "query": "उत्तरी क्षेत्र में ए.पी. के लिए औसत मुआवजा",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "340997",
+      "query": "जेसिका चैस्टेन कितनी लंबी है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "349960",
+      "query": "पाठ में परिभाषा का हवाला कैसे दिया जाए",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "356949",
+      "query": "विंडोज पर कच्ची तस्वीरों को संपादित करने का तरीका",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "413585",
+      "query": "क्या वाहन के दरवाजे को बंद करने के लिए आर.टी.वी. सीलेंट या सिलिकॉन कॉल्क का उपयोग करना बेहतर है?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "454376",
+      "query": "मौसम के अनुसार वजन बनाए रखने के लिए न्यूनतम कच्चा प्रोटीन",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "456605",
+      "query": "सबसे आरामदायक चलने की एड़ी की ऊंचाई",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "465589",
+      "query": "सामान्य सीमा त्सी के लिए",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "470466",
+      "query": "साँस लेने वालों के लिए अन्य नाम",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "472115",
+      "query": "पाश्चुरीकृत पनीर के प्रकार",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "512045",
+      "query": "दाली चीनी में तापमान",
+      "expected_selected_passage_indexes": [
+        2,
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "515455",
+      "query": "अपोक्राइन और एक्क्राइन ग्रंथियों के बीच का अंतर।",
+      "expected_selected_passage_indexes": [
+        1,
+        5,
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "515534",
+      "query": "मांसपेशियों के छोटा होने और मांसपेशियों के झटके के बीच का अंतर",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "53381",
+      "query": "एक ही प्रहार में सबसे ज्यादा बल",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "555171",
+      "query": "क्षुद्रग्रह क्या हैं? बच्चे?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "55781",
+      "query": "2001 में जैकी फ्रेज़ियर-लाइड को हराने वाले मुक्केबाज अली",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "579575",
+      "query": "कौन से बंधन हैलोजन और क्षारीय धातु के होते हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "588395",
+      "query": "बुजुर्ग लोगों में मतिभ्रम का कारण क्या है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "591083",
+      "query": "बैंगनी होंठों का कारण क्या है",
+      "expected_selected_passage_indexes": [
+        1,
+        4,
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "621977",
+      "query": "एंटी ईटर खाते क्या हैं",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "629216",
+      "query": "ह्यूस्टन सिविल सेवा परीक्षा में क्या शामिल होता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "636226",
+      "query": "दरवाजे का समय क्या होता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "63784",
+      "query": "शराब चयापचय को धीमा कर सकती है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "66345",
+      "query": "मनोभ्रंश तेजी से बढ़ सकता है।",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "687331",
+      "query": "कार ब्रेक सिस्टम पर हाइड्रोलिक नियंत्रण इकाई क्या है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "69618",
+      "query": "क्या मैं किसी भी नंबर से टेक्स्ट संदेश भेज सकता हूँ?",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "739564",
+      "query": "व्हिस्की और बोरबॉन के बीच क्या अंतर है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "761943",
+      "query": "जेमी फॉक्स का असली नाम क्या है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "776517",
+      "query": "नए सकारात्मक दृष्टिकोण का क्या अर्थ है?",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "790591",
+      "query": "भी वक्र में अवशेष क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "797396",
+      "query": "मुर्गी को सूँघना क्या है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "803024",
+      "query": "क्या है टेम्पो डस्ट",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "81586",
+      "query": "रद्द की गई जाँच की परिभाषा",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "820676",
+      "query": "केशिकाओं और शरीर की ऊतक कोशिकाओं के बीच गैसों का आदान-प्रदान क्या है?",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "838541",
+      "query": "पासपोर्ट शुल्क क्या है",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "853241",
+      "query": "पीले पत्थर में झरना कहाँ है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "862855",
+      "query": "थोक क्रेडिट क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "879017",
+      "query": "कौन सी मोटर कंपनी ह्युंदाई को बनाती है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "891803",
+      "query": "मैक्सिकन युद्ध में ज़ैकेरी टेलर ने क्या भूमिका निभाई थी?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "893843",
+      "query": "मुझे किस रक्त समूह का पोशक तत्व खाना चाहिए?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "900606",
+      "query": "किस टीम में ग्र्र्र नाम का खिलाड़ी है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "924728",
+      "query": "काले प्रकाश में शौचालय क्या रोशन होगा",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "965823",
+      "query": "अफ्रीका में अधिकांश पौधे कहाँ स्थित हैं?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "967825",
+      "query": "मैं ऑनलाइन मेज़ेटा मीठा और गर्म जलपेनो मिर्च का ऑर्डर कहां दे सकता हूँ?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "970831",
+      "query": "हॉर्नेट अपने घोंसले कहाँ बनाते हैं",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_D_SELECTED_PLUS_QUERY_COVERAGE",
+      "query_id": "986317",
+      "query": "कौन सूर्य वुकोंग था",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    }
+  ],
+  "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK": [
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1003224",
+      "query": "वांझपन के लिए मछली का परीक्षण कब करें",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1006039",
+      "query": "सर्टसी का गठन कब हुआ था",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1009995",
+      "query": "आपके कार्यालय प्रबंधक को कभी नहीं करना चाहिए",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1010825",
+      "query": "जिसने सबसे अधिक साम्राज्य का विस्तार किया",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1012835",
+      "query": "चंगेज खान का असली नाम क्या था? हुलागु।",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1013966",
+      "query": "जिस नेटवर्क को प्रॉक्सी सर्वर भी कहा जाता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1018083",
+      "query": "कौन से राजकुमार ने फर्गी से शादी की थी",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1021545",
+      "query": "दक्षिण अफ्रीका की सरकार में अफ्रीकी लोगों ने क्या भूमिका निभाई?",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "102175",
+      "query": "मानक डाक टिकट की लागत",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1024625",
+      "query": "मेरु रज्जु की कौन सी मोटर शाखा निकलती है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1029315",
+      "query": "क्या त्रिगुणा प्रबंधन निगम है?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1031194",
+      "query": "पहली घरेलू देखभाल के सी.ई.ओ.",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1032298",
+      "query": "पोल बार्न पर क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1044461",
+      "query": "गीत के बोलों को सुनने में सहायता प्रदान करने वाली सेवा की औसत लागत क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1047664",
+      "query": "छद्म कोड क्या है?",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1047812",
+      "query": "अल्फा कोशिकाओं द्वारा उत्पादित क्या होता है",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1067705",
+      "query": "एन.एम.आर. एक दिए गए प्रोटीन के लिए कई समान संरचनाएँ क्यों उत्पन्न करता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1071417",
+      "query": "क्ले ग्रोग का अर्थ है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1072196",
+      "query": "रविवार का यूकेरिस्ट क्यों महत्वपूर्ण है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1073490",
+      "query": "मुँह में अल्सर क्यों होते हैं",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1074100",
+      "query": "शुष्क काउंटी क्या है",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1083228",
+      "query": "पोमोडोरो का क्या अर्थ है",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1088153",
+      "query": "वेस्टफील्ड न्यूयॉर्क में मौसम",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "108861",
+      "query": "यू.वी.ए. में उपस्थित होने की लागत",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1088793",
+      "query": "न्यूनतम पट्टा भुगतान की गणना करें",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1090330",
+      "query": "मीडिया व्यवसाय विशेषाधिकार कर का नगर",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1092852",
+      "query": "दवा ड्यूराफेन",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1095777",
+      "query": "कैलिफोर्निया में बिक्री कर कितना है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1096757",
+      "query": "महिलाओं के लैक्रोस मैदान पर कितने खिलाड़ी हैं",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1097264",
+      "query": "कलराडो में बेदखली से पहले किराए पर कितने दिन देर से आए?",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1099601",
+      "query": "कितने गहरे हरे प्याज़ को उगाना है",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1100688",
+      "query": "परिभाषित करें",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1100707",
+      "query": "नवीनतम टैग",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1100831",
+      "query": "भावना को परिभाषित करें।",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1101105",
+      "query": "नाली की सफाई सेवाओं की लागत",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "152598",
+      "query": "जो बीमारियाँ फोड़े का कारण बनती हैं",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "15344",
+      "query": "अल्डी ऑस्ट्रेलिया के खुलने के समय",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "15722",
+      "query": "जून में एलर्जी से संबंधित क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "172383",
+      "query": "क्या कॉफी अच्छी गंध वाली है?",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "1724",
+      "query": "कृपया दयालु देवता के लिए प्रतीकात्मक पाठ का प्रतीकात्मक अर्थ के साथ पाठ करें।",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "181144",
+      "query": "प्रति वर्ग फुट एपॉक्सी काउंटरटॉप की कीमत",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "190212",
+      "query": "अतिसार के समय खाने के लिए खाद्य पदार्थ",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "224626",
+      "query": "इलेक्ट्रोकॉनवल्सिव थेरेपी ओ.सी.डी. का इलाज कैसे करती है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "245956",
+      "query": "प्रयोगशाला परिणामों में हिव परीक्षण के लिए कितना समय लगता है",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "264957",
+      "query": "टेक्सास में बढ़ते मौसम कितने समय के लिए हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "314530",
+      "query": "पेशेवर खिड़की साफ करने की लागत कितनी है?",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "328981",
+      "query": "प्रतिधारण तालाब कितना खोदना है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "33935",
+      "query": "विधि विद्यालय 2015 की औसत लागत",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "358801",
+      "query": "हमारे जनगणना डेटा में वृद्ध आयु वर्ग कैसे खोजें",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "366147",
+      "query": "खाना पकाते समय खाद्य पदार्थों को उज्ज्वल कैसे रखा जाए",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "382612",
+      "query": "कटा हुआ अनानास सुरक्षित है या नहीं, यह कैसे बताएं",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "398392",
+      "query": "लौह युग के राउंडहाउस निर्माण",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "402395",
+      "query": "कानूनी रूप से इस्तेमाल किया जाने के लिए कार्य एक कानून है।",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "418633",
+      "query": "क्या एम.पी.3ओब्सेशन सुरक्षित और वैध है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "436499",
+      "query": "कनेक्टिकट में सबसे बड़ी फोर्ड डीलरशिप",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "454875",
+      "query": "पुदीने की स्थिति; एक पट्टी की परिभाषा",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "464078",
+      "query": "न्यूटन ने अंतराल को विभाजित किया",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "473030",
+      "query": "लोगों के बैंक एन.सी. रूटिंग नंबर",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "475241",
+      "query": "शरीर का अर्थ है",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "475551",
+      "query": "परिभाषा को तेज करना",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "489370",
+      "query": "20 वर्ष की आयु में घुटने के मेनिस्कस सर्जरी के जोखिम",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "49729",
+      "query": "व्यवहार स्वास्थ्य एकीकरण की परिभाषा",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "506035",
+      "query": "सैयद करीम कार्डियोलॉजी फैक्स नंबर",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "522646",
+      "query": "सर्वकालिक शीर्ष प्रीमियरशिप गोल करने वाले",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "52593",
+      "query": "बाइबिल की अपमानजनक परिभाषा",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "53397",
+      "query": "लकड़ी का सबसे बड़ा उत्पादक",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "534000",
+      "query": "हम पेटेंट ड्रॉइंग फ़ॉन्ट आकार",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "547454",
+      "query": "वजन घटाने का कार्यक्रम जहां जीभ के नीचे बूंदें रखी जाती हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "56759",
+      "query": "ब्रायन एडम्स बचपन",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "568526",
+      "query": "अस्पतालों के लिए मुख्य उपाय क्या हैं?",
+      "expected_selected_passage_indexes": [
+        0
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "572969",
+      "query": "दमकल के लिए आवेदन करने के लिए क्या आवश्यकताएं हैं",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "57304",
+      "query": "पेट खराब होने के लक्षण",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "57504",
+      "query": "मक्खन पेकान ग्लेज़",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "600975",
+      "query": "हृदय से रक्त बाहर निकालने के लिए किन अनुबंधों की आवश्यकता होती है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "639988",
+      "query": "फ्रीऑन पर चेक की लागत क्या है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "646181",
+      "query": "प्रोक्ट का क्या अर्थ है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "648323",
+      "query": "गुणवत्तापूर्ण टायरों के लिए गति मूल्यांकन का क्या अर्थ है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "648598",
+      "query": "रूढ़िबद्ध क्रिया क्षमता का क्या अर्थ है?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "663435",
+      "query": "जीवाणु के पास क्या आनुवंशिक सामग्री होती है?",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "673118",
+      "query": "क्या है एक सैट टेस्ट",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "707593",
+      "query": "अधिग्रहीत व्युत्पत्ति क्या है?",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "72631",
+      "query": "क्या प्रेडनिसोन सेल्युलाईट को बदतर बना सकता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "738428",
+      "query": "किस लिए डिमेरोल का इस्तेमाल किया जाता है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "740304",
+      "query": "क्या Ditropanxl का इस्तेमाल किया जाता है",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "750421",
+      "query": "जेनरेशन एक्स क्या है?",
+      "expected_selected_passage_indexes": [
+        1
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "786918",
+      "query": "प्रक्रिया नियंत्रण उपकरण क्या है",
+      "expected_selected_passage_indexes": [
+        6
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "798060",
+      "query": "कौन सी चीज़ सोमर रे के लिए प्रसिद्ध है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "812682",
+      "query": "दांत निकालने की लागत क्या है",
+      "expected_selected_passage_indexes": [
+        1,
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "81738",
+      "query": "मास के हिसाब से मौसम का निर्धारण",
+      "expected_selected_passage_indexes": [
+        7
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "832498",
+      "query": "किस लिए मर्केटर प्रोजेक्शन का इस्तेमाल किया जाता है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "850404",
+      "query": "मैग्मा का तापमान क्या होता है",
+      "expected_selected_passage_indexes": [],
+      "had_selected_evidence": false
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "878615",
+      "query": "बार्सिलोना में कितना पैसा इस्तेमाल किया जाता है",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "89039",
+      "query": "रक्त में पानी के कारण",
+      "expected_selected_passage_indexes": [
+        4
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "937593",
+      "query": "ब्रायन हेन्सन ने मिया सारा से कब शादी की?",
+      "expected_selected_passage_indexes": [
+        2
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "938706",
+      "query": "हिमनदों के पिघलने की घटना कब हुई थी",
+      "expected_selected_passage_indexes": [
+        5
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "961796",
+      "query": "मार्सेलिस किस समय लिखा गया था?",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "970157",
+      "query": "वॉटरगेट सलाद को इसका नाम कहाँ मिला",
+      "expected_selected_passage_indexes": [
+        8
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "988061",
+      "query": "मजबूत विरोधी किधर है?",
+      "expected_selected_passage_indexes": [
+        3
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "988294",
+      "query": "मोरक्को अफ्रीका में कहाँ स्थित है",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    },
+    {
+      "policy_name": "POLICY_E_SELECTED_PLUS_1_WITH_ZERO_SELECTED_FALLBACK",
+      "query_id": "990665",
+      "query": "जो पूर्व प्रमुख लीग पिचर माइक जेफकोट हैं",
+      "expected_selected_passage_indexes": [
+        9
+      ],
+      "had_selected_evidence": true
+    }
+  ]
+}

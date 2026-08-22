@@ -1,0 +1,23 @@
+# CUDA-enabled PyTorch build used by the persistent E5 embedder.
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+# API and realtime STT transport.
+fastapi==0.141.1
+pydantic==2.13.4
+uvicorn[standard]==0.52.3
+python-dotenv==1.2.2
+python-multipart==0.0.32
+httpx==0.28.1
+websockets==17.0.1
+
+# Frozen bilingual RAG runtime.
+numpy==2.5.2
+torch==2.13.0+cu126
+sentence-transformers==5.7.0
+transformers==5.15.0
+qdrant-client==1.19.0
+
+# Local Parquet ingestion and the remote hf:// inspection utility.
+pyarrow==25.0.1
+fsspec[http]==2026.6.0
+huggingface-hub==1.27.0
