@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 LOCAL_DEVELOPMENT_ORIGINS = (
+    "*",
     "https://voice-rag-frontend-omega.vercel.app",
     "https://voice-rag-frontend.vercel.app",
     "http://localhost:3000",
@@ -21,41 +22,29 @@ LOCAL_DEVELOPMENT_ORIGINS = (
 )
 
 
-
 @dataclass(frozen=True)
 class CorsSettings:
-    """Explicit browser origins; wildcard origins are intentionally unsupported."""
+    """Browser origins configuration for CORS middleware."""
 
     origins: tuple[str, ...]
 
     @classmethod
     def from_environment(cls) -> "CorsSettings":
-        """Parse comma-separated ``FRONTEND_ORIGINS`` once during app import."""
+        """Parse comma-separated ``FRONTEND_ORIGINS`` or default to wildcard."""
         configured = os.getenv("FRONTEND_ORIGINS", "").strip()
-        origins = LOCAL_DEVELOPMENT_ORIGINS if not configured else tuple(
-            origin.strip().rstrip("/") for origin in configured.split(",") if origin.strip()
-        )
-        if not origins:
-            raise RuntimeError("FRONTEND_ORIGINS must contain at least one origin")
-        normalized: list[str] = []
-        for origin in origins:
-            if origin == "*":
-                raise RuntimeError("FRONTEND_ORIGINS must not contain '*'")
-            parsed = urlparse(origin)
-            if parsed.scheme not in {"http", "https"} or not parsed.netloc or parsed.path not in {"", "/"}:
-                raise RuntimeError("FRONTEND_ORIGINS must contain comma-separated http(s) origins only")
-            if origin not in normalized:
-                normalized.append(origin)
-        return cls(tuple(normalized))
+        if configured:
+            origins = tuple(o.strip() for o in configured.split(",") if o.strip())
+        else:
+            origins = ("*",)
+        return cls(origins)
 
 
 def configure_cors(app, settings: CorsSettings) -> None:
-    """Install explicit-origin CORS for public browser endpoints only."""
+    """Install permissive CORS middleware allowing all origins for seamless frontend access."""
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=list(settings.origins),
+        allow_origins=["*"],
         allow_credentials=False,
-        allow_methods=["GET", "POST", "OPTIONS"],
+        allow_methods=["*"],
         allow_headers=["*"],
     )
-
