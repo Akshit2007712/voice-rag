@@ -210,6 +210,7 @@ export default function Home() {
               answer={result?.answer ?? null}
               explanation={result?.explanation ?? null}
               guardrail={result?.guardrail ?? null}
+              noAnswer={result?.no_answer ?? false}
               loading={phase === "generating"}
             />
 

@@ -6,16 +6,22 @@ interface AnswerPanelProps {
   answer: string | null;
   explanation: string | null;
   guardrail: GuardrailInfo | null;
+  noAnswer?: boolean;
   loading: boolean;
 }
 
-export function AnswerPanel({ answer, explanation, guardrail, loading }: AnswerPanelProps) {
+export function AnswerPanel({ answer, explanation, guardrail, noAnswer, loading }: AnswerPanelProps) {
   const blocked = guardrail?.triggered && guardrail.category !== "none";
+  const isNoAnswer = noAnswer === true;
+
+  // Label & tab colour
+  const label = blocked ? "No answer given" : isNoAnswer ? "Nothing relevant found" : "Answer";
+  const tone = blocked || isNoAnswer ? "alert" : "pipe";
 
   return (
     <PixelPanel
-      label={blocked ? "No answer given" : "Answer"}
-      tone={blocked ? "alert" : "pipe"}
+      label={label}
+      tone={tone}
       className="answer-panel"
     >
       {loading ? (
@@ -29,6 +35,16 @@ export function AnswerPanel({ answer, explanation, guardrail, loading }: AnswerP
           category={guardrail.category as Exclude<GuardrailInfo["category"], "none">}
           reason={guardrail.reason}
         />
+      ) : isNoAnswer ? (
+        <div className="rounded border-2 border-alert/60 bg-alert/10 px-4 py-5">
+          <p className="font-pixel text-[10px] uppercase tracking-widest text-alert sm:text-[11px]">
+            ✕ Nothing relevant found
+          </p>
+          <p className="mt-2 font-body text-sm leading-relaxed text-alert/80 sm:text-base">
+            No matching information was found in the knowledge base for your query.
+            Please try rephrasing your question.
+          </p>
+        </div>
       ) : answer ? (
         <div>
           <p className="font-body text-lg leading-relaxed text-ink sm:text-2xl sm:leading-relaxed">
