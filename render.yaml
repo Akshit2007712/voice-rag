@@ -3,7 +3,7 @@ services:
     name: voice-rag-backend
     runtime: python
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     plan: free
     envVars:
@@ -18,4 +18,5 @@ services:
       - key: QDRANT_URL
         sync: false
       - key: FRONTEND_ORIGINS
-        sync: false
+        value: https://voice-rag-frontend-omega.vercel.app,http://localhost:3000,http://localhost:3005,http://127.0.0.1:3000
+

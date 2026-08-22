@@ -1,21 +1,23 @@
-# CPU-only PyTorch — compatible with Render cloud (no CUDA GPU).
-# The E5 embedder automatically selects CPU when cuda is unavailable.
+# CPU-only PyTorch — Render cloud has no CUDA GPU.
+# Must use PyTorch's own wheel server to get the +cpu binary.
+--extra-index-url https://download.pytorch.org/whl/cpu
 
-# API and realtime STT transport.
+# API transport — plain uvicorn (no [standard] to avoid uvloop source compilation).
 fastapi==0.111.0
 pydantic==2.7.1
-uvicorn[standard]==0.29.0
+uvicorn==0.29.0
 python-dotenv==1.0.1
 python-multipart==0.0.9
 httpx==0.27.0
-websockets==12.0
+websockets==11.0.3
+aiofiles==23.2.1
 
-# Frozen bilingual RAG runtime (CPU build).
+# RAG runtime — CPU torch + multilingual-e5 embedder.
 numpy==1.26.4
-torch==2.3.0
-sentence-transformers==3.0.0
-transformers==4.41.2
+torch==2.3.0+cpu
+sentence-transformers==2.7.0
+transformers==4.40.0
+tokenizers==0.19.1
 qdrant-client==1.9.1
-
-# Remote hf:// utility (pyarrow only needed for local ingestion).
 huggingface-hub==0.23.2
+
