@@ -121,7 +121,7 @@ export default function Home() {
       setErrorMessage(null);
       processedBlobRef.current = null;
       recorder.reset();
-      void recorder.start();
+      void recorder.start({ autoStopAfterSilenceMs: autoSend ? 800 : 1200 });
     }
   };
 

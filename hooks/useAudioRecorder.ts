@@ -178,19 +178,19 @@ export function useAudioRecorder(): UseAudioRecorderResult {
         setElapsedMs(Date.now() - startTimeRef.current);
       }, 100);
 
-      recorder.start(250);
+      recorder.start(100);
       setStatus("recording");
 
       const silenceMs = options?.autoStopAfterSilenceMs;
       const MAX_RECORDING_MS = 10_000; // Auto-stop after 10s max recording time
       silenceTimerRef.current = setInterval(() => {
         const elapsed = Date.now() - startTimeRef.current;
-        // Detect speech if input level passes 0.01
-        if (levelRef.current > 0.01) {
+        // Detect speech if input level passes 0.008 threshold
+        if (levelRef.current > 0.008) {
           heardSpeechRef.current = true;
           lastAudibleAtRef.current = Date.now();
         }
-        // Auto-stop on 2s silence after speech is detected
+        // Auto-stop immediately on silence after speech is detected
         if (silenceMs && heardSpeechRef.current && Date.now() - lastAudibleAtRef.current >= silenceMs) {
           if (mediaRecorderRef.current?.state === "recording") {
             mediaRecorderRef.current.stop();
@@ -203,7 +203,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
             mediaRecorderRef.current.stop();
           }
         }
-      }, 100);
+      }, 50);
     } catch (err) {
       cleanupStream();
       const isPermissionError =
