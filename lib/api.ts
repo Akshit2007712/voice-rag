@@ -2,35 +2,24 @@ import { ApiError, type QueryLanguage, type QueryResponse } from "./types";
 
 const DIRECT_RENDER_BACKEND = "https://voice-rag-backend-pdll.onrender.com";
 
-function getApiBase(): string {
-  const envUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
-  if (envUrl && envUrl.startsWith("http")) {
-    // Force HTTPS if not localhost
-    if (envUrl.startsWith("http://") && !envUrl.includes("localhost") && !envUrl.includes("127.0.0.1")) {
-      return envUrl.replace(/^http:\/\//i, "https://").replace(/\/+$/, "");
-    }
-    return envUrl.replace(/\/+$/, "");
-  }
-  // Default to Next.js same-origin rewrite proxy on Vercel, fallback to direct HTTPS
-  return "/api/backend";
+function getTargetUrls(endpoint: string): string[] {
+  const clean = endpoint.replace(/^\/api\/backend\/?/, "").replace(/^https?:\/\/[^\/]+\/?/, "").replace(/^\/+/, "");
+  return [
+    `/api/backend/${clean}`,
+    `${DIRECT_RENDER_BACKEND}/${clean}`,
+  ];
 }
 
-const API_BASE = getApiBase();
-
-const VOICE_ENDPOINT = `${API_BASE}/query-voice`;
-const TEXT_ENDPOINT = `${API_BASE}/query-text`;
-const HEALTH_ENDPOINT = `${API_BASE}/health`;
-
 const REQUEST_TIMEOUT_MS = 90_000;
-const MAX_RETRIES = 4;
-const RETRY_BASE_DELAY_MS = 2000;
+const MAX_RETRIES = 6;
+const RETRY_BASE_DELAY_MS = 1500;
 
 /** Proactively wake up Render free-tier container in background */
 export async function ensureBackendAwake(): Promise<boolean> {
   try {
     const controller = new AbortController();
     const tid = setTimeout(() => controller.abort(), 10000);
-    const res = await fetch(HEALTH_ENDPOINT, { method: "GET", cache: "no-store", signal: controller.signal });
+    const res = await fetch("/api/backend/health", { method: "GET", cache: "no-store", signal: controller.signal });
     clearTimeout(tid);
     if (res.ok) return true;
     // Fallback direct check
@@ -232,20 +221,15 @@ function validateQueryResponse(data: unknown, fallbackTranscript?: string): Quer
 }
 
 async function postQuery(
-  urlPath: string,
+  endpoint: string,
   body: BodyInit,
   options?: { signal?: AbortSignal; headers?: HeadersInit },
 ): Promise<unknown> {
   let lastError: unknown;
-  const targetUrls = [
-    urlPath,
-    urlPath.replace("/api/backend", DIRECT_RENDER_BACKEND),
-  ];
-  // Remove duplicates
-  const uniqueUrls = Array.from(new Set(targetUrls));
+  const targetUrls = getTargetUrls(endpoint);
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-    const targetUrl = uniqueUrls[attempt % uniqueUrls.length]!;
+    const targetUrl = targetUrls[attempt % targetUrls.length]!;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
     const onExternalAbort = () => controller.abort();
@@ -263,7 +247,7 @@ async function postQuery(
         const message = await parseErrorBody(res);
         if (isRetryableStatus(res.status) && attempt < MAX_RETRIES) {
           lastError = new ApiError(message, res.status);
-          await sleep(RETRY_BASE_DELAY_MS * 2 ** attempt);
+          await sleep(RETRY_BASE_DELAY_MS * 2 ** (attempt % 3));
           continue;
         }
         throw new ApiError(message, res.status);
@@ -277,14 +261,14 @@ async function postQuery(
 
       if ((isAbort || isNetwork) && attempt < MAX_RETRIES) {
         lastError = err;
-        await sleep(RETRY_BASE_DELAY_MS * 2 ** attempt);
+        await sleep(RETRY_BASE_DELAY_MS * 2 ** (attempt % 3));
         continue;
       }
       if (err instanceof ApiError) throw err;
       throw new ApiError(
         isAbort
           ? "Request timed out — backend server took too long to respond."
-          : "Could not reach the backend server. Please try again in a few seconds."
+          : "Backend is warming up (Render free tier). Please retry in 5 seconds."
       );
     } finally {
       clearTimeout(timeoutId);
@@ -304,7 +288,7 @@ export async function submitTextQuery(
 ): Promise<QueryResponse> {
   const trimmed = query.trim();
   const rawData = await postQuery(
-    TEXT_ENDPOINT,
+    "query-text",
     JSON.stringify({ query: trimmed, language }),
     { ...options, headers: { "Content-Type": "application/json" } },
   );
@@ -323,12 +307,12 @@ export async function submitVoiceQuery(
   );
   if (options?.language) form.append("language", options.language);
 
-  const rawData = await postQuery(VOICE_ENDPOINT, form, options);
+  const rawData = await postQuery("query-voice", form, options);
   return validateQueryResponse(rawData);
 }
 
 export async function checkBackendHealth(): Promise<{ status: string }> {
-  const res = await fetch(HEALTH_ENDPOINT);
+  const res = await fetch(`${DIRECT_RENDER_BACKEND}/health`);
   if (!res.ok) throw new ApiError("Backend health check failed", res.status);
   return res.json();
 }
