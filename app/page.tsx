@@ -113,13 +113,13 @@ export default function Home() {
 
   const handleMicClick = () => {
     if (recorder.status === "recording") {
-      recorder.stopRecording();
+      recorder.stop();
     } else if (BUSY_PHASES.includes(phase)) {
       handleCancel();
     } else {
       setResult(null);
       setErrorMessage(null);
-      void recorder.startRecording();
+      void recorder.start();
     }
   };
 
@@ -156,9 +156,9 @@ export default function Home() {
         <section className="flex flex-col items-center justify-center pt-2 text-center sm:pt-4">
           <MicOrb
             phase={phase}
-            audioLevel={recorder.audioLevel}
-            durationMs={recorder.durationMs}
-            onClick={handleMicClick}
+            level={recorder.level}
+            elapsedMs={recorder.elapsedMs}
+            onPress={handleMicClick}
           />
           {phase === "idle" && (
             <p className="mt-3 font-pixel text-[10px] text-sky-night/70 sm:text-xs">
@@ -220,7 +220,7 @@ export default function Home() {
           <div>
             <TranscriptPanel
               transcript={result?.transcript ?? null}
-              loading={showLoadingSkeletons && phase !== "uploading"}
+              loading={showLoadingSkeletons && (phase as string) !== "uploading"}
             />
 
             <LatencyPanel latest={result?.latency ?? null} aggregate={latencyStats} targetMs={200} />
